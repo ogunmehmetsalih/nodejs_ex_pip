@@ -3,7 +3,7 @@ pipeline {
 
     environment {
         GIT_URL = 'https://github.com/ogunmehmetsalih/nodejs_ex_pip.git'
-        GIT_BRANCH = 'main'
+        GIT_BRANCH = 'master'
         GIT_CREDENTIALS_ID = ''  // Public repo olduğu için boş bırakabiliriz
         DOCKER_IMAGE = 'msalihogun/nodejs_ex_pip'
         DOCKER_TAG = 'latest'
