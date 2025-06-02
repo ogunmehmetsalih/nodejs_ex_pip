@@ -4,10 +4,10 @@ pipeline {
     environment {
         GIT_URL = 'https://github.com/ogunmehmetsalih/nodejs_ex_pip.git'
         GIT_BRANCH = 'master'
-        GIT_CREDENTIALS_ID = ''  // Public repo olduğu için boş bırakabiliriz
+        GIT_CREDENTIALS_ID = ''  // Public repo olduğu için boş kalabilir
         DOCKER_IMAGE = 'msalihogun/nodejs_ex_pip'
         DOCKER_TAG = 'latest'
-        DOCKER_CREDENTIALS_ID = 'dockerhub-creds'  // Jenkins’te tanımlı olmalı
+        DOCKER_CREDENTIALS_ID = 'dockerhub-creds'
         EMAIL_RECIPIENTS = 'msalihogun.sw@gmail.com'
     }
 
@@ -23,7 +23,9 @@ pipeline {
         stage('Docker Build') {
             steps {
                 script {
-                    docker.build("${DOCKER_IMAGE}:${DOCKER_TAG}")
+                    sh """
+                    docker build -t ${DOCKER_IMAGE}:${DOCKER_TAG} .
+                    """
                 }
             }
         }
